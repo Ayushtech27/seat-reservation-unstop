@@ -1,0 +1,33 @@
+Database Connection:
+The code establishes a connection to the MongoDB database using the Mongoose library.
+
+The connection URI is obtained from the environment variable process.env.MONGODB_URI or defaults to 'mongodb://localhost:27017/seatReservation'.
+
+Mongoose connects to the MongoDB server with the specified URI, enabling communication between the Node.js application and the database.
+Seat Model:
+The application requires the Seat model from the ./models/seat.js file.
+The Seat model represents the schema and behavior of a seat entity in the MongoDB database.
+The model defines the structure of a seat document and provides methods for creating, retrieving, updating, and deleting seat records in the database.
+The schema includes fields such as number (seat number), available (availability status), and id.
+Initial Seat Data:
+The createInitialSeats function is called after establishing a successful connection to the MongoDB database.
+It performs the following tasks:
+Deletes any existing seat data in the Seat collection using Seat.deleteMany().
+Creates new seat data by inserting documents based on the seatNumbers array, which is imported from ./seatNumbers.js, using Seat.create().
+The seatNumbers array contains predefined seat numbers or details for initializing the seat data in the database.
+API Endpoints:
+The code defines two API endpoints using Express routes.
+GET /api/seats:
+Retrieves all seat documents from the Seat collection using Seat.find() and returns them as a JSON response.
+This endpoint allows clients to fetch the current state of all seats in the database.
+POST /api/reservations:
+Accepts a request body containing an array of seatNumbers that represents the requested seat numbers for reservation.
+Validates the input and checks if the requested seats are available by querying the Seat collection using Seat.find().
+If all requested seats are available, the endpoint updates the corresponding seat documents to mark them as reserved using Seat.updateMany().
+Sends a JSON response indicating the success or failure of the reservation attempt.
+Error Handling Middleware:
+The application includes an error handling middleware that catches any errors thrown during the request processing.
+If an error occurs, it logs the error message and returns a 500 Internal Server Error response to the client.
+Server Initialization:
+The application listens for incoming connections on port 8000 using app.listen().
+When the server starts, it logs a message indicating the port number.

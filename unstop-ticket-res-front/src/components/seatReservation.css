@@ -1,0 +1,85 @@
+.container {
+    margin: 20px;
+  }
+  
+  .seat-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .seat {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: calc(14.28% - 10px); /* 7 seats per row */
+  }
+  
+  .seat input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .checkbox-container {
+    position: relative;
+    margin-right: 5px;
+  }
+  
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkbox-container label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .seat-number {
+    margin-left: 5px;
+  }
+  
+  .reserve-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    margin-left: 8rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .reserve-button:hover {
+    background-color: #45a049;
+  }
+  
+  .center-heading {
+    text-align: center;
+  }
+  
+  .sub-heading {
+    text-align: left;
+    margin-left: 9px;
+    margin-bottom: 10px;
+  }
+  
+  .selected-seat {
+    display: inline-block;
+    margin-right: 5px;
+    background-color: yellow;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .num-seats-input{
+    padding-left: 1px;
+    padding-top: 3px;
+    padding-bottom: 3px
+  }
+  
